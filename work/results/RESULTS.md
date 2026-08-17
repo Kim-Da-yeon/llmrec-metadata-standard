@@ -1,4 +1,4 @@
-# 추가 실험 결과 (학회논문 보강용) — EXP-A/B/C
+# Experimental Results — Multi-Seed Validation (EXP-A/B/C)
 
 생성일: 2026-06-10
 환경: NVIDIA RTX PRO 6000 Blackwell, /usr/bin/python3.12, torch 2.11+cu130

@@ -1,10 +1,8 @@
-# 국제 메타데이터 표준을 통합한 LLM 기반 그래프 증강 추천시스템
+# Standard-Aware LLM Graph Augmentation for Recommendation
+### A Quantitative Trade-off Analysis between Recommendation Performance and Metadata Standard Compliance
 
-**Standard-Aware LLM Graph Augmentation for Recommendation:
-A Quantitative Trade-off Analysis between Recommendation Performance and Metadata Standard Compliance**
-
-표준학개론 (INTRODUCTION TO STANDARDS) 기말 텀페이퍼
-2026학년도 1학기
+> 국제 메타데이터 표준을 통합한 LLM 기반 그래프 증강 추천시스템
+> Introduction to Standards — Term Paper, 2026 Spring
 
 ---
 

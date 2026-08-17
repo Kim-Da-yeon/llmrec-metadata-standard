@@ -1,88 +1,86 @@
-# LLM 생성 추천 메타데이터의 표준 적합성 진단과 정규화
+# Standard-Aware LLM Graph Augmentation for Recommendation
 
-**ISO 3166-1 / BCP-47 / ISO 8601 기반 LLM 증강 추천 데이터의 품질·상호운용성 개선**
+**Diagnosing and normalizing the standard compliance of LLM-generated recommendation metadata (ISO 3166-1 / BCP-47 / ISO 8601)**
 
-> 표준학개론 텀페이퍼 · 대상 시스템: [LLMRec (HKUDS)](https://github.com/HKUDS/LLMRec) · 데이터: Netflix Prize subset (17,366 items)
+> Introduction to Standards — Term Paper · Target system: [LLMRec (HKUDS, WSDM '24)](https://github.com/HKUDS/LLMRec) · Data: Netflix Prize subset (17,366 items)
 
 ---
 
-## 개요
+## Overview
 
-LLM 기반 추천 시스템은 부족한 항목 메타데이터(국가·언어 등)를 LLM으로 생성·증강한다. 그러나 LLM은 통제 어휘가 아니라 **자유 텍스트**를 출력하므로, 같은 국가가 `USA` / `United States` / `America`처럼 비일관 형식으로 산출되어 시스템 간 상호운용과 데이터 통합을 저해한다.
+LLM-based recommenders augment sparse item metadata (country, language, etc.) with LLM-generated text. But LLMs emit **free text**, not controlled vocabulary, so the same country appears as `USA` / `United States` / `America` — inconsistent surface forms that break cross-system interoperability and data integration.
 
-본 연구는 LLM이 생성한 Netflix 메타데이터의 **표준 적합성을 정량 진단**하고, ISO 3166-1 / BCP-47 정규화 레이어로 이를 개선한다.
+This work **quantitatively diagnoses** the standard compliance of LLMRec's generated Netflix metadata and improves it with an ISO 3166-1 / BCP-47 normalization layer.
 
-## 핵심 결과
+## Key Results
 
-### ✅ 표준 정규화 — 상호운용성 0 → 80.3% (핵심 기여)
+### ✅ Standard normalization — interoperability 0 → 80.3% (core contribution)
 
-| 필드 | 형식 적합률 (Raw → Norm) | 고유 표면형 → 정준 | 압축비 |
+| Field | Format compliance (Raw → Norm) | Unique surface → canonical | Compression |
 |---|---|---|---|
 | country | 0.000 → **0.858** | 1,166 → 57 | **20.5×** |
 | language | 0.000 → **0.866** | 326 → 52 | **6.3×** |
 | year | 0.999 → 0.999 | — | — |
-| director | 0.936 → 0.936 (표준 없음) | — | — |
-| **전체 SCR** | 0.484 → **0.914** | — | — |
-| **상호운용성 (IS)** | 0.000 → **0.803** | — | — |
+| director | 0.936 → 0.936 (no standard) | — | — |
+| **Overall SCR** | 0.484 → **0.914** | — | — |
+| **Interoperability (IS)** | 0.000 → **0.803** | — | — |
 
-- 같은 국가가 **1,166개 표면형**으로 난립(20.5× 중복) → 정준 표준 코드로 통합
-- 정규화 후 **80.3%** 항목이 4개 필드 모두 유효한 schema.org/Movie JSON-LD로 변환 가능
-- 표준화가 **LLM 생성 오류 검출기**로도 기능: language 칸에 국가가 삽입된 **컬럼시프트 오류 724건** 등 자동 탐지
+- A single country scattered across **1,166 surface forms** (20.5× redundancy) → unified to canonical standard codes
+- After normalization, **80.3%** of items convert to valid schema.org/Movie JSON-LD across all four fields
+- Standardization also acts as an **LLM error detector**: e.g. **724 column-shift errors** (a country injected into the language field) automatically caught
 
-### ⚠️ 추천 성능 — 유의한 개선 없음 (정직 보고)
+### ⚠️ Recommendation performance — no significant improvement (honest reporting)
 
-단일 seed(2022)에서 관측된 Standard-Aware의 +2.67%(R@20) 개선은 **다중 seed(0–9)에서 통계적으로 재현되지 않았다**.
+The +2.67% (R@20) gain observed with a single seed (2022) **did not replicate across multiple seeds (0–9)**.
 
-| 지표 | Vanilla (mean±std) | Std-Aware (mean±std) | Δ% | p (paired t-test) |
+| Metric | Vanilla (mean±std) | Std-Aware (mean±std) | Δ% | p (paired t-test) |
 |---|---|---|---|---|
 | R@20 | 0.07588±0.00489 | 0.07696±0.00475 | +1.43 | 0.293 |
 | N@20 | 0.03029±0.00186 | 0.03045±0.00247 | +0.51 | 0.783 |
 
-**7개 지표 전부 p > 0.05** (95% CI 모두 0 포함). 통제 실험(EXP-A) 결과, 관측된 변화는 표준 코드의 의미성이 아니라 **속성 임베딩 평활화(centroid denoising) 효과**에 기인하며, 표준 centroid와 랜덤 centroid가 통계적으로 구분되지 않는다(데이터가 US/English에 지배되는 head-dominance).
+**All 7 metrics p > 0.05** (every 95% CI includes 0). A controlled experiment (EXP-A) shows the observed shift comes from **attribute-embedding smoothing (centroid denoising)**, not from the semantics of standard codes — standard and random centroids are statistically indistinguishable because the data is dominated by US/English (head-dominance).
 
-→ **결론:** 표준화의 검증된 가치는 **데이터 품질·상호운용성**에 있으며, 추천 정확도와의 직접 연계는 본 데이터셋에서 확인되지 않았다.
+→ **Conclusion:** the verified value of standardization lies in **data quality and interoperability**; a direct link to recommendation accuracy is not confirmed on this dataset.
 
-## 저장소 구조
+## Repository Structure
 
 ```
 .
-├── 메타데이터_표준화_정리.md          # 표준 적합성 진단·정규화 연구 정리 (핵심 결과)
-├── 표준학개론_텀페이퍼.md / .pdf       # 텀페이퍼
-├── 표준학개론_프로포절_최종.md / .pdf  # 연구 제안서
-├── images/                            # 논문 그림
+├── term-paper.md / .pdf               # Term paper (full write-up)
+├── images/                            # Figures
 └── work/
-    ├── normalization.py               # 표준 정규화 모듈 (ISO 3166-1 / BCP-47)
-    ├── compliance_metrics.py          # 표준 적합성 진단 스크립트
-    ├── build_*_data.py                # 데이터 빌드 (standardized / centroid 변형)
-    ├── run_experiment.py              # LLMRec 학습·평가 실행
-    ├── aggregate_seeds.py             # 다중 seed 집계 · paired t-test
-    ├── cold_start_eval.py             # cold-start 진단
-    ├── make_figures.py                # 그림 생성
-    ├── run_*.sh                       # 실험 실행 스크립트
-    └── results/                       # 실험 결과 (JSON / 로그 / 요약)
-        ├── RESULTS_SUMMARY.md         # 단일 seed 결과 요약
-        ├── RESULTS_ADDENDUM.md        # 다중 seed 검증 (null result 정직 보고)
-        ├── compliance_summary.json    # 표준 적합성 진단 결과
-        ├── expB/                      # 다중 seed (Vanilla vs Std-Aware)
-        └── expD/                      # augment clean 비교
+    ├── normalization.py               # Standard normalization module (ISO 3166-1 / BCP-47)
+    ├── compliance_metrics.py          # Standard-compliance diagnostics
+    ├── build_*_data.py                # Data builders (standardized / centroid variants)
+    ├── run_experiment.py              # LLMRec training & evaluation
+    ├── aggregate_seeds.py             # Multi-seed aggregation + paired t-test
+    ├── cold_start_eval.py             # Cold-start diagnostics
+    ├── make_figures.py                # Figure generation
+    ├── prompt_templates.md            # Standard-aware prompt design document
+    ├── run_*.sh                       # Experiment runners
+    └── results/                       # Experiment outputs (JSON / logs / summary)
+        ├── RESULTS.md                 # Multi-seed validation (honest null result)
+        ├── compliance_summary.json    # Standard-compliance diagnostics output
+        ├── expB/                      # Multi-seed (Vanilla vs Std-Aware)
+        └── expD/                      # Augment-clean comparison
 ```
 
-## 재현
+## Reproduce
 
 ```bash
-# 표준 적합성 진단
+# Standard-compliance diagnostics
 python3 work/compliance_metrics.py
 
-# 다중 seed 결과 집계 및 통계 검정
+# Aggregate multi-seed results and run the statistical test
 python3 work/aggregate_seeds.py
 ```
 
-> 실행 환경: Python 3.12 · PyTorch 2.11+cu130 · pycountry, scipy
-> LLMRec 학습에는 [HKUDS/LLMRec](https://github.com/HKUDS/LLMRec)의 공개 Netflix augmented data가 필요하다.
+> Environment: Python 3.12 · PyTorch 2.11+cu130 · pycountry, scipy
+> LLMRec training requires the public Netflix augmented data from [HKUDS/LLMRec](https://github.com/HKUDS/LLMRec).
 
-## 표준
+## Standards
 
-- **ISO 3166-1 alpha-2** — 국가 코드
-- **BCP 47** — 언어 태그
-- **ISO 8601** — 연도(datePublished)
-- **schema.org/Movie** (JSON-LD) — 상호운용성 검증 스키마
+- **ISO 3166-1 alpha-2** — country codes
+- **BCP 47** — language tags
+- **ISO 8601** — year (datePublished)
+- **schema.org/Movie** (JSON-LD) — interoperability validation schema

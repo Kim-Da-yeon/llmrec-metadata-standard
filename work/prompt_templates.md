@@ -1,4 +1,4 @@
-# Standard-Aware Prompt Templates (설계 문서)
+# Standard-Aware Prompt Templates (Design Document)
 
 본 문서는 LLMRec의 LLM 증강 프롬프트(`P_I`, `P_U`, `P_UI`)를 schema.org/Movie 어휘 및 ISO 표준 코드 체계와 정합하도록 재설계한 결과를 정의한다. **본 텀페이퍼에서는 LLM 재호출을 수행하지 않고**, 본 템플릿을 정성적 분석과 졸업논문 후속 연구의 기반 자산으로 제시한다.
 
