@@ -1,0 +1,93 @@
+[
+  {
+    "metric": "R@10",
+    "vanilla_mean": 0.04558,
+    "vanilla_std": 0.00336,
+    "std_mean": 0.04575,
+    "std_std": 0.00458,
+    "delta_pct": 0.36,
+    "diff_mean": 0.000163,
+    "diff_95ci": 0.001494,
+    "ci_excludes_zero": false,
+    "p_value": 0.8359,
+    "n_seeds": 10
+  },
+  {
+    "metric": "R@20",
+    "vanilla_mean": 0.07588,
+    "vanilla_std": 0.00489,
+    "std_mean": 0.07696,
+    "std_std": 0.00475,
+    "delta_pct": 1.43,
+    "diff_mean": 0.001084,
+    "diff_95ci": 0.0019,
+    "ci_excludes_zero": false,
+    "p_value": 0.2925,
+    "n_seeds": 10
+  },
+  {
+    "metric": "R@50",
+    "vanilla_mean": 0.13268,
+    "vanilla_std": 0.01124,
+    "std_mean": 0.13122,
+    "std_std": 0.01078,
+    "delta_pct": -1.1,
+    "diff_mean": -0.001463,
+    "diff_95ci": 0.00386,
+    "ci_excludes_zero": false,
+    "p_value": 0.4764,
+    "n_seeds": 10
+  },
+  {
+    "metric": "N@10",
+    "vanilla_mean": 0.02269,
+    "vanilla_std": 0.00174,
+    "std_mean": 0.02263,
+    "std_std": 0.00256,
+    "delta_pct": -0.24,
+    "diff_mean": -5.4e-05,
+    "diff_95ci": 0.001442,
+    "ci_excludes_zero": false,
+    "p_value": 0.9432,
+    "n_seeds": 10
+  },
+  {
+    "metric": "N@20",
+    "vanilla_mean": 0.03029,
+    "vanilla_std": 0.00186,
+    "std_mean": 0.03045,
+    "std_std": 0.00247,
+    "delta_pct": 0.51,
+    "diff_mean": 0.000153,
+    "diff_95ci": 0.001057,
+    "ci_excludes_zero": false,
+    "p_value": 0.783,
+    "n_seeds": 10
+  },
+  {
+    "metric": "N@50",
+    "vanilla_mean": 0.04151,
+    "vanilla_std": 0.00259,
+    "std_mean": 0.04115,
+    "std_std": 0.00322,
+    "delta_pct": -0.86,
+    "diff_mean": -0.000355,
+    "diff_95ci": 0.000698,
+    "ci_excludes_zero": false,
+    "p_value": 0.3448,
+    "n_seeds": 10
+  },
+  {
+    "metric": "P@20",
+    "vanilla_mean": 0.00379,
+    "vanilla_std": 0.00024,
+    "std_mean": 0.00385,
+    "std_std": 0.00024,
+    "delta_pct": 1.43,
+    "diff_mean": 5.4e-05,
+    "diff_95ci": 9.5e-05,
+    "ci_excludes_zero": false,
+    "p_value": 0.2925,
+    "n_seeds": 10
+  }
+]

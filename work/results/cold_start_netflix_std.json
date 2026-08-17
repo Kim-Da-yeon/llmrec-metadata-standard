@@ -1,0 +1,11 @@
+{
+  "dataset": "netflix_std",
+  "recall@20_overall": 0.06070460704607046,
+  "recall@20_cold_items": 0.0,
+  "recall@20_warm_items": 0.08818897637795275,
+  "n_test_users": 1845,
+  "n_cold_items": 12481,
+  "n_warm_items": 2206,
+  "p20_freq_threshold": 0.0,
+  "p50_freq_threshold": 0.0
+}

@@ -1,0 +1,45 @@
+{
+  "n_items": 17366,
+  "per_field": [
+    {
+      "field": "director",
+      "raw_compliance_rate": 0.9356213290337441,
+      "post_normalization_rate": 0.9356213290337441,
+      "uplift": 0.0,
+      "raw_unique": 8759,
+      "normalized_unique": 8755,
+      "compression_ratio": 1.000456881781839
+    },
+    {
+      "field": "country",
+      "raw_compliance_rate": 0.0,
+      "post_normalization_rate": 0.8577104687320051,
+      "uplift": 0.8577104687320051,
+      "raw_unique": 1166,
+      "normalized_unique": 57,
+      "compression_ratio": 20.45614035087719
+    },
+    {
+      "field": "language",
+      "raw_compliance_rate": 0.0,
+      "post_normalization_rate": 0.8655418634112634,
+      "uplift": 0.8655418634112634,
+      "raw_unique": 326,
+      "normalized_unique": 52,
+      "compression_ratio": 6.269230769230769
+    },
+    {
+      "field": "year",
+      "raw_compliance_rate": 0.9985604053898423,
+      "post_normalization_rate": 0.9985604053898423,
+      "uplift": 0.0,
+      "raw_unique": 95,
+      "normalized_unique": 94,
+      "compression_ratio": 1.0106382978723405
+    }
+  ],
+  "scr_raw_overall": 0.4835454336058966,
+  "scr_post_overall": 0.9143585166417136,
+  "interoperability_score_raw": 0.0,
+  "interoperability_score_post": 0.8030634573304157
+}

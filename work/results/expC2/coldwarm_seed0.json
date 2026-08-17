@@ -1,0 +1,32 @@
+{
+  "seed": 0,
+  "n_items": 17366,
+  "vanilla": "netflix",
+  "std": "netflix_std",
+  "buckets": [
+    {
+      "freq_bucket": "freq=0",
+      "n_items": 9139,
+      "pct_items": 52.63,
+      "n_test_pos": 240,
+      "R@20_vanilla": 0.0,
+      "R@20_std": 0.0
+    },
+    {
+      "freq_bucket": "freq=1-5",
+      "n_items": 6300,
+      "pct_items": 36.28,
+      "n_test_pos": 385,
+      "R@20_vanilla": 0.0,
+      "R@20_std": 0.0
+    },
+    {
+      "freq_bucket": "freq=6+",
+      "n_items": 1927,
+      "pct_items": 11.1,
+      "n_test_pos": 1220,
+      "R@20_vanilla": 0.09508,
+      "R@20_std": 0.10082
+    }
+  ]
+}
