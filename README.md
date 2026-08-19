@@ -1,7 +1,7 @@
 # LLM 생성 추천 메타데이터의 국제 표준 정규화
 
 ISO 3166-1 · BCP 47 · ISO 8601 적합성 진단 및 정규화 레이어.
-대상 시스템 [LLMRec (HKUDS, WSDM '24)](https://github.com/HKUDS/LLMRec) · 데이터 Netflix Prize 부분집합 17,366건 · 표준학 기말 과제
+대상 시스템 [LLMRec (HKUDS, WSDM '24)](https://github.com/HKUDS/LLMRec) · 데이터 Netflix Prize 부분집합 17,366건 · 표준학 기말 과제 · 2026
 
 ---
 
