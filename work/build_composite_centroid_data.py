@@ -1,3 +1,4 @@
+import os
 """
 build_composite_centroid_data.py
 "표준화를 더" : 단일필드(country) 대신 다필드 '조합 표준코드'로 더 잘게 표준화.
@@ -20,7 +21,7 @@ import numpy as np
 import pandas as pd
 from normalization import normalize_country, normalize_language, normalize_year
 
-LLMREC = "~/LLMRec"
+LLMREC = os.path.expanduser("~/LLMRec")
 
 
 def composite_codes(attr, year, mode):

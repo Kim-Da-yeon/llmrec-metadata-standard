@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # EXP-A 보강: 균등 크기 랜덤 centroid 대조군 (gs=10,30,100 × seed 0-4)
 set -e
-WORK="~/LLREC_표준학/work"
+WORK="$HOME/LLREC_표준학/work"
 PY="/usr/bin/python3.12"
 cd "$WORK"
 

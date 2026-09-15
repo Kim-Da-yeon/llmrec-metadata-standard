@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # EXP-D: 증강쌍 통계 정제 2x2 (raw/clean x 기본/업가중), seed 0-4
 set -e
-WORK="~/LLREC_표준학/work"; PY="/usr/bin/python3.12"; cd "$WORK"
+WORK="$HOME/LLREC_표준학/work"; PY="/usr/bin/python3.12"; cd "$WORK"
 UP="0.05"   # 업가중 aug_mf_rate (기본 0.012)
 for s in 0 1 2 3 4; do
   $PY run_experiment.py --dataset netflix          --seed "$s" --exp expD --tag raw_def

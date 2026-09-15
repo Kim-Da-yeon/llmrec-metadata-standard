@@ -21,8 +21,8 @@ import numpy as np
 import torch
 
 # add LLMRec to import path
-sys.path.insert(0, "~/LLMRec")
-os.chdir("~/LLMRec")
+sys.path.insert(0, os.path.expanduser("~/LLMRec"))
+os.chdir(os.path.expanduser("~/LLMRec"))
 
 
 def evaluate(dataset_name, ckpt_args=None):
@@ -130,7 +130,7 @@ def evaluate(dataset_name, ckpt_args=None):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", required=True)
-    ap.add_argument("--out", default="~/LLREC_표준학/work/results/cold_start_{ds}.json")
+    ap.add_argument("--out", default=os.path.expanduser("~/LLREC_표준학/work/results/cold_start_{ds}.json"))
     a = ap.parse_args()
     res = evaluate(a.dataset)
     out_path = a.out.format(ds=a.dataset)

@@ -31,7 +31,7 @@ import numpy as np
 
 from normalization import normalize_country, normalize_language
 
-LLMREC = "~/LLMRec"
+LLMREC = os.path.expanduser("~/LLMRec")
 
 
 def build_uniform_centroid_embeddings(field_embeddings, normalized_codes, rng, group_size):

@@ -26,7 +26,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 
-LLMREC = "~/LLMRec"
+LLMREC = os.path.expanduser("~/LLMRec")
 WORK = os.path.dirname(os.path.abspath(__file__))
 
 BUCKETS = [

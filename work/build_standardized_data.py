@@ -51,8 +51,8 @@ def build_centroid_embeddings(field_embeddings, normalized_codes):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--src", default="~/LLMRec/data/netflix")
-    p.add_argument("--dst", default="~/LLMRec/data/netflix_std")
+    p.add_argument("--src", default=os.path.expanduser("~/LLMRec/data/netflix"))
+    p.add_argument("--dst", default=os.path.expanduser("~/LLMRec/data/netflix_std"))
     args = p.parse_args()
 
     os.makedirs(args.dst, exist_ok=True)

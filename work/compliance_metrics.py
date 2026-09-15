@@ -1,3 +1,4 @@
+import os
 """
 Standard Compliance Rate (SCR) and Interoperability Score (IS).
 
@@ -138,9 +139,9 @@ def pretty_print(summary):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--attr", default="~/LLMRec/data/netflix/augmented_attribute_dict")
-    p.add_argument("--csv", default="~/LLMRec/data/netflix/item_attribute_filter.csv")
-    p.add_argument("--out", default="~/LLREC_표준학/work/results/compliance_summary.json")
+    p.add_argument("--attr", default=os.path.expanduser("~/LLMRec/data/netflix/augmented_attribute_dict"))
+    p.add_argument("--csv", default=os.path.expanduser("~/LLMRec/data/netflix/item_attribute_filter.csv"))
+    p.add_argument("--out", default=os.path.expanduser("~/LLREC_표준학/work/results/compliance_summary.json"))
     args = p.parse_args()
 
     attr = load_attribute_dict(args.attr)

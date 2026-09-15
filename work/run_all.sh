@@ -6,8 +6,8 @@
 #       필요한 블록만 골라 실행하거나, 백그라운드/세션 분리 실행을 권장.
 set -e
 
-WORK="~/LLREC_표준학/work"
-LLMREC="~/LLMRec"
+WORK="$HOME/LLREC_표준학/work"
+LLMREC="$HOME/LLMRec"
 # 이 프로젝트의 의존성(torch+cu130, pycountry, scipy)이 설치된 인터프리터
 PY="/usr/bin/python3.12"
 

@@ -21,15 +21,15 @@ for fp in [
 plt.rcParams["font.family"] = ["Noto Sans CJK JP", "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 
-OUT = "~/LLREC_표준학/images"
+OUT = os.path.expanduser("~/LLREC_표준학/images")
 os.makedirs(OUT, exist_ok=True)
 
 # ============ Load data for Figure A ============
 import sys
-sys.path.insert(0, "~/LLREC_표준학/work")
+sys.path.insert(0, os.path.expanduser("~/LLREC_표준학/work"))
 from normalization import normalize_country
 
-attr = pickle.load(open("~/LLMRec/data/netflix/augmented_attribute_dict", "rb"))
+attr = pickle.load(open(os.path.expanduser("~/LLMRec/data/netflix/augmented_attribute_dict"), "rb"))
 raw_countries = [v[1] for v in attr.values()]
 norm_countries = [normalize_country(c)[0] or "(invalid)" for c in raw_countries]
 

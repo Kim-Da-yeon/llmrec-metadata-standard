@@ -27,7 +27,7 @@ import shutil
 
 import numpy as np
 
-LLMREC = "~/LLMRec"
+LLMREC = os.path.expanduser("~/LLMRec")
 
 
 def l2norm(x, axis=1, eps=1e-8):

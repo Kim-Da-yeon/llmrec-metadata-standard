@@ -24,7 +24,7 @@ import json
 import os
 import sys
 
-LLMREC = "~/LLMRec"
+LLMREC = os.path.expanduser("~/LLMRec")
 WORK = os.path.dirname(os.path.abspath(__file__))  # chdir 전에 계산
 
 # 명세 고정 하이퍼파라미터

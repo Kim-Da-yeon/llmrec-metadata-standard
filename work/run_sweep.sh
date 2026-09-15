@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 성능 탐색: 신호 강화 HP 스윕 (seed 0, 탐색용)
 set -e
-WORK="~/LLREC_표준학/work"; PY="/usr/bin/python3.12"; cd "$WORK"
+WORK="$HOME/LLREC_표준학/work"; PY="/usr/bin/python3.12"; cd "$WORK"
 S=0
 run(){ $PY run_experiment.py --dataset netflix --seed $S --exp sweep --tag "$1" ${2:+--set "$2"}; }
 
